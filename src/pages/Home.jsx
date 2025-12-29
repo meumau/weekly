@@ -25,7 +25,7 @@ export default function Home() {
                 </section>
 
                 <section className="text-center pt-15 pb-5">
-                    <h2 className="font-bold text-4xl">Get stuff gone, weekly.</h2>
+                    <h2 className="font-bold text-4xl">Get stuff done, weekly.</h2>
                     <div className="grid grid-cols-3 gap-4 max-w-6xl mx-auto py-15">
 
                         <div className="bg-stone-200 text-left rounded-3xl p-15">
