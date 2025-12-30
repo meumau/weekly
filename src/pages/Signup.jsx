@@ -49,7 +49,7 @@ export default function Signup() {
       return;
     }
 
-    //When the user has signed up succesfully, app navigates to my week page
+    //Navigating to my week -page after signing up
     navigate("/myweek");
 
   }
