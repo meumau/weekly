@@ -1,7 +1,14 @@
 import Header from "../components/Header.jsx";
+import Day from "../components/Day.jsx";
+import TodoSection from "../components/TodoSection.jsx";
+import useAuth from "../hooks/useAuth.jsx";
 
 export default function Myweek() {
   
+  const { user } = useAuth();
+  const userId = user?.id;
+
+  const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 
   return (
@@ -9,75 +16,22 @@ export default function Myweek() {
     
     <Header />
 
-      <main className="py-15 px-20 bg-stone-200 rounded-t-4xl relative">
-        <div className="flex gap-4 pb-2">
+      <main className="py-10 px-10 md:py-15 md:px-20 bg-stone-200 rounded-t-4xl relative">
+        <div className="flex flex-col md:flex-row gap-4 pb-2">
 
           {/* TO DO */}
-          <div className="min-w-[270px] min-h-[400px] shrink-0 bg-white rounded-2xl shadow overflow-hidden">
-            <div className="bg-violet-500 text-white font-semibold text-center py-2">
-              To do
-            </div>
-            <div className="p-4 h-32"></div>
-          </div>
+          <TodoSection userId={userId}/>
 
           {/* DAYS */}
-          <div className="flex gap-4 overflow-x-auto w-full bg-violet-200 shadow rounded-2xl pt-5">
-          
+          <div className="flex gap-4 min-h-[450px] md:min-h-auto overflow-x-auto w-full bg-violet-200 shadow rounded-2xl pt-5">
             <div className="flex gap-4 overflow-x-auto w-full pb-5 px-5 custom-scroll">
-
-                <div className="min-w-[270px] shrink-0 bg-white rounded-2xl shadow overflow-hidden">
-                  <div className="bg-violet-500 text-white font-semibold text-center py-2">
-                    Monday
-                  </div>
-                  <div className="p-4 h-32"></div>
-                </div>
-
-                <div className="min-w-[270px] shrink-0 bg-white rounded-2xl shadow overflow-hidden">
-                  <div className="bg-violet-500 text-white font-semibold text-center py-2">
-                    Tuesday
-                  </div>
-                  <div className="p-4 h-32"></div>
-                </div>
-
-                <div className="min-w-[270px] shrink-0 bg-white rounded-2xl shadow overflow-hidden">
-                  <div className="bg-violet-500 text-white font-semibold text-center py-2">
-                    Wednesday
-                  </div>
-                  <div className="p-4 h-32"></div>
-                </div>
-
-                <div className="min-w-[270px] shrink-0 bg-white rounded-2xl shadow overflow-hidden">
-                  <div className="bg-violet-500 text-white font-semibold text-center py-2">
-                    Thursday
-                  </div>
-                  <div className="p-4 h-32"></div>
-                </div>
-
-                <div className="min-w-[270px] shrink-0 bg-white rounded-2xl shadow overflow-hidden">
-                  <div className="bg-violet-500 text-white font-semibold text-center py-2">
-                    Friday
-                  </div>
-                  <div className="p-4 h-32"></div>
-                </div>
-
-                <div className="min-w-[270px] shrink-0 bg-white rounded-2xl shadow overflow-hidden">
-                  <div className="bg-violet-500 text-white font-semibold text-center py-2">
-                    Saturday
-                  </div>
-                  <div className="p-4 h-32"></div>
-                </div>
-
-                <div className="min-w-[270px] shrink-0 bg-white rounded-2xl shadow overflow-hidden">
-                  <div className="bg-violet-500 text-white font-semibold text-center py-2">
-                    Sunday
-                  </div>
-                  <div className="p-4 h-32"></div>
-                </div>
-
+                    {/* Displaying each day */}
+                    {days.map((day) => (
+                      <Day key={day} weekDay={day} userId={userId} />
+                    ))}
             </div>
           </div>
           
-
         </div>
       </main>
 
