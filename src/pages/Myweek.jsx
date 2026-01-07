@@ -12,11 +12,11 @@ export default function Myweek() {
 
 
   return (
-    <div className="bg-stone-50 font-display">
+    <div className="bg-white font-display">
     
     <Header />
 
-      <main className="py-10 px-10 md:py-15 md:px-20 bg-stone-200 rounded-t-4xl relative">
+      <main className="py-10 px-10 md:py-15 md:px-20 bg-stone-200 rounded-t-4xl relative inset-shadow-xs/10">
         <div className="flex flex-col md:flex-row gap-4 pb-2">
 
           {/* TO DO */}

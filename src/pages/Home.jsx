@@ -11,7 +11,7 @@ export default function Home() {
     if (user) return <Navigate to="/myweek" />;
 
     return (
-        <div className="bg-stone-50 font-display">
+        <div className="bg-white font-display">
         
             <Header />
 
