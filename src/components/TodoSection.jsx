@@ -38,6 +38,20 @@ export default function TodoSection({ userId }) {
         setTodos((prev) => [...prev, newTodo]);
     }
 
+    //Removing deleted task from the to do list
+    function handleRemove(taskId) {
+        setTodos(prev => prev.filter(t => t.id !== taskId));
+    }
+
+    //Showing the updated state of the card in the list
+    function handleToggle(taskId) {
+        setTodos(prev =>
+            prev.map(todo =>
+                todo.id === taskId ? { ...todo, state: !todo.state } : todo
+            )
+        );
+    }
+
     return (
         <div className="min-w-[270px] min-h-auto md:min-h-[400px] shrink-0 bg-white rounded-2xl shadow overflow-hidden">
             <div className="bg-violet-500 text-white font-semibold text-center py-2 px-3 flex items-center justify-between">
@@ -58,7 +72,7 @@ export default function TodoSection({ userId }) {
             <div className={`p-4 ${open ? "flex" : "hidden"} md:flex flex-col gap-2`}>
                 {/* Displaying each to do of the section */}
                 {todos.map((todo) => (
-                        <TodoCard key={todo.id} text={todo.text} />
+                        <TodoCard key={todo.id} id={todo.id} text={todo.text} state={todo.state} onRemove={handleRemove} onToggle={handleToggle} />
                 ))}
                 <AddTask weekDay="todo" userId={userId} onAdd={handleAdd}/>
             </div>

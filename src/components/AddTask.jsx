@@ -50,7 +50,7 @@ export default function AddTask({weekDay, userId, onAdd}) {
                     </input>
                     <button
                         type="submit" 
-                        className="bg-stone-300 p-2 rounded-full w-9 h-9 flex items-center justify-center hover:bg-stone-400 transition cursor-pointer">
+                        className="bg-stone-700 text-white p-2 rounded-full w-9 h-9 flex items-center justify-center hover:bg-stone-400 transition cursor-pointer">
                             <FontAwesomeIcon icon={faPlus} />
                     </button> 
                 </form>
@@ -62,7 +62,7 @@ export default function AddTask({weekDay, userId, onAdd}) {
                     className="flex items-center gap-3 justify-between bg-stone-100 p-3 rounded-xl min-h-[60px]" 
                     onClick={() => setInputOpen((o) => !o)}> 
                         <p className="overflow-hidden text-ellipsis">Add task</p>
-                        <button className="bg-stone-300 p-2 rounded-full w-9 h-9 flex items-center justify-center hover:bg-stone-400 transition cursor-pointer"><FontAwesomeIcon icon={faPlus} /></button> 
+                        <button className="bg-stone-700 text-white p-2 rounded-full w-9 h-9 flex items-center justify-center hover:bg-stone-400 transition cursor-pointer"><FontAwesomeIcon icon={faPlus} /></button> 
                 </div>
             )}          
         </div>

@@ -33,6 +33,20 @@ export default function Day( {weekDay, userId} ) {
     function handleAdd(newTodo) {
         setTodos((prev) => [...prev, newTodo]);
     }
+
+    //Removing deleted task from the to do list
+    function handleRemove(taskId) {
+        setTodos(prev => prev.filter(t => t.id !== taskId));
+    }
+
+    //Showing the updated state of the card in the list
+    function handleToggle(taskId) {
+        setTodos(prev =>
+            prev.map(todo =>
+                todo.id === taskId ? { ...todo, state: !todo.state } : todo
+            )
+        );
+    }
     
     return (
         <div className="w-[240px] md:w-[270px] shrink-0 bg-white rounded-2xl shadow overflow-hidden">
@@ -42,7 +56,7 @@ export default function Day( {weekDay, userId} ) {
             <div className="p-4 h-32 flex flex-col gap-2">
                 {/* Displaying each to do of the day */}
                 {todos.map((todo) => (
-                    <TodoCard key={todo.id} text={todo.text} />
+                    <TodoCard key={todo.id} id={todo.id} text={todo.text} state={todo.state} onRemove={handleRemove} onToggle={handleToggle} />
                 ))}
             <AddTask weekDay={weekDay} userId={userId} onAdd={handleAdd}/>
                 
